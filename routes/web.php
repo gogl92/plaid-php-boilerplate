@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $plaidAccounts = App\Models\PlaidAccounts::all();
+    
+    return view('welcome', compact('plaidAccounts'));
 });
 
 Route::get('/createLinkToken', 'App\Http\Controllers\PlaidController@createLinkToken');
